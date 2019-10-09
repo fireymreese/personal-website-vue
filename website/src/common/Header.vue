@@ -1,12 +1,12 @@
 <template>
     <div class="col nav_bar justify-content-center"
-       :class="headerColor">
-      <ul>
+       :class="[isSelected == 'app-home' ? homeHeaderColor : otherHeaderColor]">
+      <ul class="my-auto">
         <li @click="switchComponent('app-home')">Home</li>
         <li  @click="switchComponent('app-experience')">Experience</li>
         <li>Projects</li>
         <li><a>Passions</a></li>
-        <li>Contact</li>
+        <li @click="switchComponent('app-about')">About</li>
       </ul>
     </div>
 </template>
@@ -16,16 +16,11 @@ export default {
     props: ['isSelected'],
     data() {
         return {
-        
+            homeHeaderColor: 'home-header-color',
+            otherHeaderColor: 'header-color',
         }
     },
     methods: {
-        headerColor() {
-            return {
-                'home-header-color': this.isSelected == 'app-home',
-                'header-color': this.isSelected !== 'app-home',
-            }
-        },
         switchComponent(component) {
             this.isSelected = component;
             this.$emit('componentWasChanged', this.isSelected);
@@ -56,7 +51,7 @@ export default {
   }
 
   .nav_bar li {
-    padding: 25px; 
+    padding: 0 25px; 
     font-size: 14pt;
     text-shadow: 2px 2px 4px #000000;;
     font-family: Poppins, sans-serif;

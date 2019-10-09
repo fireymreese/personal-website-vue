@@ -76,6 +76,7 @@
                         </ul>
                     </div>
                 </div>
+                <hr>
                 <!-- technologies -->
                 <div class="row">
                     <div class="col-3">
@@ -96,7 +97,7 @@
 
 <style>
     .exp1 {
-        background-color: darkgray;
+        background-color: lightgray;
     }
 
     .exp2 {
